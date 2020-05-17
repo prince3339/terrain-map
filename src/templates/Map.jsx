@@ -1,6 +1,8 @@
 import React from "react";
 import ImageMapper from 'react-image-mapper';
 import { TransformWrapper, TransformComponent } from "@prince3339/customized-react-zoom-pan-pinch";
+import Logo from './Logo';
+import { MapImgStyle, LogoContainerStyle } from './MapStyle';
 
 class MapFigure extends React.Component {
   constructor(props) {
@@ -79,192 +81,261 @@ class MapFigure extends React.Component {
     }
     return (
       <div className="body">
+        <LogoContainerStyle>
+          <Logo />
+        </LogoContainerStyle>
         <section>
-          <div className="container">
-            <div className="row align-items-center">
-              <div style={{position: 'relative'}} className="col-lg-12 order-lg-2 example">
-                <TransformWrapper
-                  options={{
-                    limitToBounds,
-                    transformEnabled,
-                    disabled,
-                    limitToWrapper,
-                  }}
-                  pan={{
-                    disabled: !panningEnabled,
-                    lockAxisX,
-                    lockAxisY,
-                    velocityEqualToMove,
-                    velocity: enableVelocity,
-                    disableOnTarget: ['clickMe', 'fuck'],
-                  }}
-                  pinch={{ disabled: !pinchEnabled }}
-                  doubleClick={{
-                    disabled: !dbClickEnabled,
-                    disableOnTarget: ['clickMe'],
-                  }}
-                  wheel={{
-                    step: 200,
-                    wheelEnabled: enableWheel,
-                    touchPadEnabled: enableTouchPadPinch,
-                    limitsOnWheel,
-                    
-                  }}
-                >
-                  {({
-                    zoomIn,
-                    zoomOut,
-                    resetTransform,
-                    setDefaultState,
-                    positionX,
-                    positionY,
-                    scale,
-                    previousScale,
-                    options: { limitToBounds, transformEnabled, disabled },
-                    ...rest
-                  }) => {
-                      return (<React.Fragment>
-                        <div className="tools">
-                          <button className="btn-gradient yellow small btn-type" data-testid="toggle-button" onClick={() => {
-                            setDefaultState();
-                            this.setState(p => ({ type: !p.type }));
-                          } }>
-                            {type ? "Div example" : "Image example"}
-                          </button>
-                          <div className="spacer" />
-                          <button className="btn-gradient cyan small" onClick={zoomIn} data-testid="zoom-in-button">
-                            ZoomIn+
-                          </button>
-                          <button className="btn-gradient blue small" onClick={zoomOut} data-testid="zoom-out-button">
-                            ZoomOut-
-                          </button>
-                          <button className="btn-gradient purple small" onClick={resetTransform} data-testid="reset-button">
-                            Zoom Reset
-                          </button>
+          <div style={{position: 'relative'}} className="">
+            <TransformWrapper
+              options={{
+                limitToBounds,
+                transformEnabled,
+                disabled,
+                limitToWrapper,
+              }}
+              pan={{
+                disabled: !panningEnabled,
+                lockAxisX,
+                lockAxisY,
+                velocityEqualToMove,
+                velocity: enableVelocity,
+                disableOnTarget: ['clickMe'],
+              }}
+              pinch={{ disabled: !pinchEnabled }}
+              doubleClick={{
+                disabled: !dbClickEnabled,
+                disableOnTarget: ['clickMe'],
+              }}
+              wheel={{
+                step: 200,
+                wheelEnabled: enableWheel,
+                touchPadEnabled: enableTouchPadPinch,
+                limitsOnWheel,
+                
+              }}
+            >
+              {({
+                zoomIn,
+                zoomOut,
+                resetTransform,
+                setDefaultState,
+                positionX,
+                positionY,
+                scale,
+                previousScale,
+                options: { limitToBounds, transformEnabled, disabled },
+                ...rest
+              }) => {
+                  return (<React.Fragment>
+                    {/* <div className="tools">
+                      <button className="btn-gradient yellow small btn-type" data-testid="toggle-button" onClick={() => {
+                        setDefaultState();
+                        this.setState(p => ({ type: !p.type }));
+                      } }>
+                        {type ? "Div example" : "Image example"}
+                      </button>
+                      <div className="spacer" />
+                      <button className="btn-gradient cyan small" onClick={zoomIn} data-testid="zoom-in-button">
+                        ZoomIn+
+                      </button>
+                      <button className="btn-gradient blue small" onClick={zoomOut} data-testid="zoom-out-button">
+                        ZoomOut-
+                      </button>
+                      <button className="btn-gradient purple small" onClick={resetTransform} data-testid="reset-button">
+                        Zoom Reset
+                      </button>
+                    </div> */}
+                    <div className="element">
+                      <TransformComponent>
+                        <div>
+                          {/* <div
+                            className="clickMe"
+                            style={{position: 'absolute'}}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              console.log('HAHAHHAH');
+                            }}
+                          >
+                            Click Me!
+                          </div> */}
+                          {/* <ImageMapper src={'./Map.jpg'} map={MAP} width={500}
+                            onLoad={() => () => {}}
+                            onClick={area => () => {}}
+                            onMouseEnter={area => this.enterArea(area)}
+                            onMouseLeave={area => this.leaveArea(area)}
+                            onMouseMove={(area, _, evt) => this.moveOnArea(area, evt)}
+                            onImageClick={evt => () => {}}
+                            onImageMouseMove={evt => () => {}}
+                          /> */}
+                            {/* <img onClick={(e) => {
+                              e.preventDefault();
+                              alert('test');
+                            } } src="./Map.jpg" alt="" useMap="#my-map" />
+                            */}
+                          
+                          <MapImgStyle
+                            src="./Map.jpg"
+                            useMap="#image-map"
+                            className="map-img"
+                          />
+                          <map name="image-map">
+                              <area
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  console.log(event);
+                                }}
+                                target="_top"
+                                alt="Contact"
+                                title="Contact"
+                                href=""
+                                coords="930,2,299,526"
+                                shape="rect"
+                              />
+                              <area
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  console.log(event);
+                                }}
+                                target="_top"
+                                alt="Talent Management"
+                                title="Talent Management"
+                                href=""
+                                coords="1597,3,932,527"
+                                shape="rect"
+                              />
+                              <area
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  console.log(event);
+                                }}
+                                target="_top"
+                                alt="Production"
+                                title="Production"
+                                href=""
+                                coords="1597,529,929,1114"
+                                shape="rect"
+                              />
+                              <area
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  console.log(event);
+                                }}
+                                target="_top"
+                                alt="About"
+                                title="About"
+                                href=""
+                                coords="927,1109,298,1709"
+                                shape="rect"
+                              />
+                              <area
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  console.log(event);
+                                }}
+                                target="_top"
+                                alt="Easter Egg 3, 4"
+                                title="Easter Egg 3, 4"
+                                href=""
+                                coords="299,527,929,1107"
+                                shape="rect"
+                              />
+                              <area
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  console.log(event);
+                                }}
+                                target="_top"
+                                alt="Easter Egg 1"
+                                title="Easter Egg 1"
+                                href=""
+                                coords="1595,1116,929,1708"
+                                shape="rect"
+                              />
+                          </map>
                         </div>
-                        <div className="element">
-                          <TransformComponent>
-                            <div>
-                            <div
-                              className="clickMe"
-                              style={{position: 'absolute'}}
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                console.log('HAHAHHAH');
-                              }}
-                            >
-                              Click Me!
-                            </div>
-                            {/* <ImageMapper src={'./Map.jpg'} map={MAP} width={500}
-                              onLoad={() => () => {}}
-                              onClick={area => () => {}}
-                              onMouseEnter={area => this.enterArea(area)}
-                              onMouseLeave={area => this.leaveArea(area)}
-                              onMouseMove={(area, _, evt) => this.moveOnArea(area, evt)}
-                              onImageClick={evt => () => {}}
-                              onImageMouseMove={evt => () => {}}
-                            /> */}
-                              {/* <img onClick={(e) => {
-                                e.preventDefault();
-                                alert('test');
-                              } } src="./Map.jpg" alt="" useMap="#my-map" />
-                               */}
-                               
-                              <img className="fuck" src="./Map.jpg" useMap="#image-map" />
-                              <map name="image-map">
-                                  <area
-                                    onClick={(event) => {
-                                      event.preventDefault();
-                                      console.log(event);
-                                    }}
-                                    target="" alt="" title="" href="" coords="301,58,172,1375,1091,1352,1445,117,354,85,599,134,388,273,334,201,341,121,359,95,1253,712" shape="poly" />
-                              </map>
-                            </div>
-                          </TransformComponent>
-                        </div>
-                        <div className="info">
-                          <h3>State</h3>
-                          <h5>
-                            <span className="badge badge-secondary">
-                              Position x: {positionX}px
-                            </span>
-                            <span className="badge badge-secondary">
-                                                       Position y: {positionY}px
-                            </span>
-                            <span className="badge badge-secondary">
-                                                          Scale: {scale}
-                            </span>
-                            <span className="badge badge-secondary">
-                                                     Previous scale: {previousScale}
-                            </span>
-                          </h5>
-                        </div>
-                        <div className="functions">
-                          <h3>Functions</h3>
-                          <h6>
-                            <button className={"btn-gradient grey small" +
-                              (disabled ? " active" : "")} onClick={() => this.toggleSetting("disabled")}>
-                              <span /> Disable
-                            </button>
-                            <button className={"btn-gradient grey small" +
-                              (limitToBounds ? " active" : "")} onClick={() => this.toggleSetting("limitToBounds")}>
-                              <span /> Limit bounds
-                            </button>
-                            <button className={"btn-gradient grey small" +
-                              (limitToWrapper ? " active" : "")} onClick={() => this.toggleSetting("limitToWrapper")}>
-                              <span /> Limit to wrapper bounds
-                            </button>
-                            <button className={"btn-gradient grey small" +
-                              (!rest.pan.disabled ? " active" : "")} onClick={() => this.toggleSetting("panningEnabled")}>
-                              <span /> Enable panning
-                            </button>
-                            <button className={"btn-gradient grey small" +
-                              (!rest.pinch.disabled ? " active" : "")} onClick={() => this.toggleSetting("pinchEnabled")}>
-                              <span /> Enable pinch
-                            </button>
-                            <button className={"btn-gradient grey small" +
-                              (transformEnabled ? " active" : "")} onClick={() => this.toggleSetting("transformEnabled")}>
-                              <span /> Enable transform
-                            </button>
-                            <button className={"btn-gradient grey small" +
-                              (!rest.doubleClick.disabled ? " active" : "")} onClick={() => this.toggleSetting("dbClickEnabled")}>
-                              <span /> Double click
-                            </button>
-                            <button className={"btn-gradient grey small" +
-                              (rest.pan.lockAxisX ? " active" : "")} onClick={() => this.toggleSetting("lockAxisX")}>
-                              <span /> Lock X axis
-                            </button>
-                            <button className={"btn-gradient grey small" +
-                              (rest.pan.lockAxisY ? " active" : "")} onClick={() => this.toggleSetting("lockAxisY")}>
-                              <span /> Lock Y axis
-                            </button>
-                            <button className={"btn-gradient grey small" +
-                              (rest.pan.velocityEqualToMove ? " active" : "")} onClick={() => this.toggleSetting("velocityEqualToMove")}>
-                              <span /> Velocity time based on move
-                            </button>
-                            <button className={"btn-gradient grey small" +
-                              (rest.pan.velocity ? " active" : "")} onClick={() => this.toggleSetting("enableVelocity")}>
-                              <span /> Enable velocity
-                            </button>
-                            <button className={"btn-gradient grey small" +
-                              (rest.wheel.wheelEnabled ? " active" : "")} onClick={() => this.toggleSetting("enableWheel")}>
-                              <span /> Enable wheel
-                            </button>
-                            <button className={"btn-gradient grey small" +
-                              (rest.wheel.touchPadEnabled ? " active" : "")} onClick={() => this.toggleSetting("enableTouchPadPinch")}>
-                              <span /> Enable touch pad pinch
-                            </button>
-                            <button className={"btn-gradient grey small" +
-                              (rest.wheel.limitsOnWheel ? " active" : "")} onClick={() => this.toggleSetting("limitsOnWheel")}>
-                              <span /> Bound limits on wheel
-                            </button>
-                          </h6>
-                        </div>
-                      </React.Fragment>);
-                    }}
-                </TransformWrapper>
-              </div>
-            </div>
+                      </TransformComponent>
+                    </div>
+                    {/* <div className="info">
+                      <h3>State</h3>
+                      <h5>
+                        <span className="badge badge-secondary">
+                          Position x: {positionX}px
+                        </span>
+                        <span className="badge badge-secondary">
+                                                  Position y: {positionY}px
+                        </span>
+                        <span className="badge badge-secondary">
+                                                      Scale: {scale}
+                        </span>
+                        <span className="badge badge-secondary">
+                                                Previous scale: {previousScale}
+                        </span>
+                      </h5>
+                    </div>
+                    <div className="functions">
+                      <h3>Functions</h3>
+                      <h6>
+                        <button className={"btn-gradient grey small" +
+                          (disabled ? " active" : "")} onClick={() => this.toggleSetting("disabled")}>
+                          <span /> Disable
+                        </button>
+                        <button className={"btn-gradient grey small" +
+                          (limitToBounds ? " active" : "")} onClick={() => this.toggleSetting("limitToBounds")}>
+                          <span /> Limit bounds
+                        </button>
+                        <button className={"btn-gradient grey small" +
+                          (limitToWrapper ? " active" : "")} onClick={() => this.toggleSetting("limitToWrapper")}>
+                          <span /> Limit to wrapper bounds
+                        </button>
+                        <button className={"btn-gradient grey small" +
+                          (!rest.pan.disabled ? " active" : "")} onClick={() => this.toggleSetting("panningEnabled")}>
+                          <span /> Enable panning
+                        </button>
+                        <button className={"btn-gradient grey small" +
+                          (!rest.pinch.disabled ? " active" : "")} onClick={() => this.toggleSetting("pinchEnabled")}>
+                          <span /> Enable pinch
+                        </button>
+                        <button className={"btn-gradient grey small" +
+                          (transformEnabled ? " active" : "")} onClick={() => this.toggleSetting("transformEnabled")}>
+                          <span /> Enable transform
+                        </button>
+                        <button className={"btn-gradient grey small" +
+                          (!rest.doubleClick.disabled ? " active" : "")} onClick={() => this.toggleSetting("dbClickEnabled")}>
+                          <span /> Double click
+                        </button>
+                        <button className={"btn-gradient grey small" +
+                          (rest.pan.lockAxisX ? " active" : "")} onClick={() => this.toggleSetting("lockAxisX")}>
+                          <span /> Lock X axis
+                        </button>
+                        <button className={"btn-gradient grey small" +
+                          (rest.pan.lockAxisY ? " active" : "")} onClick={() => this.toggleSetting("lockAxisY")}>
+                          <span /> Lock Y axis
+                        </button>
+                        <button className={"btn-gradient grey small" +
+                          (rest.pan.velocityEqualToMove ? " active" : "")} onClick={() => this.toggleSetting("velocityEqualToMove")}>
+                          <span /> Velocity time based on move
+                        </button>
+                        <button className={"btn-gradient grey small" +
+                          (rest.pan.velocity ? " active" : "")} onClick={() => this.toggleSetting("enableVelocity")}>
+                          <span /> Enable velocity
+                        </button>
+                        <button className={"btn-gradient grey small" +
+                          (rest.wheel.wheelEnabled ? " active" : "")} onClick={() => this.toggleSetting("enableWheel")}>
+                          <span /> Enable wheel
+                        </button>
+                        <button className={"btn-gradient grey small" +
+                          (rest.wheel.touchPadEnabled ? " active" : "")} onClick={() => this.toggleSetting("enableTouchPadPinch")}>
+                          <span /> Enable touch pad pinch
+                        </button>
+                        <button className={"btn-gradient grey small" +
+                          (rest.wheel.limitsOnWheel ? " active" : "")} onClick={() => this.toggleSetting("limitsOnWheel")}>
+                          <span /> Bound limits on wheel
+                        </button>
+                      </h6>
+                    </div> */}
+                  </React.Fragment>);
+                }}
+            </TransformWrapper>
           </div>
         </section>
       </div>
