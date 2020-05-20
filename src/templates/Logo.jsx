@@ -9,9 +9,7 @@ const TerrainLogo = ({
 		<h1>
 			Terrains
 		</h1>
-		<span className="zoom-value">
-			{zoom}%
-		</span>
+		<div id="zoomPlaceholder" />
 	</LogoStyle>
 );
 
