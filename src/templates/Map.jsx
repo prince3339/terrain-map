@@ -1,8 +1,15 @@
 import React from "react";
+import ReactDOM from 'react-dom';
 import ImageMapper from 'react-image-mapper';
+import imageMapResize from 'image-map-resizer';
 import { TransformWrapper, TransformComponent } from "@prince3339/customized-react-zoom-pan-pinch";
 import Logo from './Logo';
-import { MapImgStyle, LogoContainerStyle } from './MapStyle';
+import AreaTitle from './AreaTitle';
+import {
+  MapImgStyle,
+  MapContainerStyle,
+  LogoContainerStyle,
+} from './MapStyle';
 
 class MapFigure extends React.Component {
   constructor(props) {
@@ -32,7 +39,54 @@ class MapFigure extends React.Component {
     this.getTipPosition = this.getTipPosition.bind(this);
   }
   componentDidMount() {
+    // imageMapResize();
+    const ImageMap = document.querySelectorAll('#image-map > area');
+    const mapContainer = document.getElementById('map-container');
+    console.log(ImageMap);
+    ImageMap.forEach(area => {
+      const title = area.getAttribute('title');
+      const coords = area.getAttribute('coords');
+      const coorA = coords.split(',');
+      let left = coorA[0];
+      let top = coorA[1];
+      let right = coorA[2];
+      let bottom = coorA[3];
 
+      // in order to properly calculate the height and width
+      // left position must be less than the right
+      if (parseInt(left) > parseInt(right)) {
+        let tmp = right;
+        right = left;
+        left = tmp;
+      }
+      // The same applies to top and bottom
+      if (parseInt(top) > parseInt(bottom)) {
+        let tmp = top;
+        top = bottom;
+        bottom = tmp;
+      }
+
+      // calculate the width and height of the rectangle
+      const width = Math.abs(right - left);
+      const height = Math.abs(bottom - top);
+      console.log(left, right, area);
+      const areaTitleContainer = document.createElement('div');
+      const areaTitle = document.createElement('div');
+      areaTitleContainer.classList.add('title-container');
+      areaTitleContainer.style.width = `${width}px`;
+      areaTitleContainer.style.height = `${height}px`;
+      areaTitleContainer.style.position = 'absolute';
+      areaTitleContainer.style.pointerEvents = 'none';
+      areaTitleContainer.style.top = `${top}px`;
+      areaTitleContainer.style.left = `${parseInt(left) > parseInt(right) ? right : left}px`;
+      areaTitle.classList.add('area-title');
+      areaTitle.innerHTML = title;
+      areaTitleContainer.appendChild(areaTitle);
+      if (title !== 'Easter Egg 3, 4' && title !== 'Easter Egg 1') {
+        mapContainer.appendChild(areaTitleContainer);
+      }
+      console.log(title, coords, area);
+    });
   }
 
   toggleSetting(type) {
@@ -173,12 +227,20 @@ class MapFigure extends React.Component {
                             } } src="./Map.jpg" alt="" useMap="#my-map" />
                             */}
                           
-                          <MapImgStyle
-                            src="./Map.jpg"
-                            useMap="#image-map"
-                            className="map-img"
-                          />
-                          <map name="image-map">
+                          <MapContainerStyle
+                            id="map-container"
+                            className="map-container"
+                          >
+                            <MapImgStyle
+                              src="./Map.jpg"
+                              useMap="#image-map"
+                              className="map-img"
+                            />
+                          </MapContainerStyle>
+                          <map
+                            id="image-map"
+                            name="image-map"
+                          >
                               <area
                                 onClick={(event) => {
                                   event.preventDefault();
