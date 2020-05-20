@@ -12,7 +12,11 @@ const MapContainerStyle = styled.div`
 		position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+		transform: translate(-50%,-50%) rotate(15deg);
+		font-size: 2rem;
+		color: var(--primary);
+		text-transform: uppercase;
+		font-family: 'MarianText';
 	}
 `;
 

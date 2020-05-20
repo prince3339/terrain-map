@@ -17,7 +17,8 @@ const LogoStyle = styled.div`
 	.zoom-value {
 		color: var(--primary);
 		font-size: 2rem;
-    padding-left: 3rem;
+		padding-left: 3rem;
+		font-family: 'simplon_monolight';
 	}
 `;
 

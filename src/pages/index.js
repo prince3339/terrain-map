@@ -1,4 +1,5 @@
 import React from "react"
+import '../styles.css';
 import panAndZoomHoc from 'react-pan-and-zoom-hoc';
 import Map from '../templates/Map';
 import GlobalStyles from '../styles/global';
