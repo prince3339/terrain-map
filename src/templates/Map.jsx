@@ -332,7 +332,10 @@ class MapFigure extends React.Component {
                               />
                           </map>
                         </div>
-                        {document.getElementById('zoomPlaceholder') && ReactDOM.createPortal(<ZoomPercentage zoom={scale} />, document.getElementById('zoomPlaceholder'))
+                        {process.browser && document.getElementById('zoomPlaceholder') ?
+                         ReactDOM.createPortal(<ZoomPercentage zoom={scale} />, document.getElementById('zoomPlaceholder'))
+                         :
+                         null
                         }
                       </TransformComponent>
                     </div>
