@@ -196,7 +196,6 @@ class MapFigure extends React.Component {
                 options: { limitToBounds, transformEnabled, disabled },
                 ...rest
               }) => {
-                console.log(document.getElementById('zoomPlaceholder'));
                   return (<React.Fragment>
                     {/* <div className="tools">
                       <button className="btn-gradient yellow small btn-type" data-testid="toggle-button" onClick={() => {
@@ -332,7 +331,7 @@ class MapFigure extends React.Component {
                               />
                           </map>
                         </div>
-                        {process.browser && document.getElementById('zoomPlaceholder') ?
+                        {process.browser ?
                          ReactDOM.createPortal(<ZoomPercentage zoom={scale} />, document.getElementById('zoomPlaceholder'))
                          :
                          null
