@@ -1,10 +1,13 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
+import Colors from './variables';
 import GlobalFontStyle from './fonts';
 
 const GlobalStyle = createGlobalStyle`
   ${GlobalFontStyle};
   html {
+    ${Colors};
+
     position: relative;
     width: 100%;
     box-sizing: border-box;
@@ -26,6 +29,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     background: #fdf7f3;
     position: relative;
+
+    area {
+      outline: none;
+    }
   }
 `;
 
