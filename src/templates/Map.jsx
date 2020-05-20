@@ -1,7 +1,8 @@
 import React from "react";
+import ArcText from 'arc-text';
 import ReactDOM from 'react-dom';
 import ImageMapper from 'react-image-mapper';
-import imageMapResize from 'image-map-resizer';
+// import imageMapResize from 'image-map-resizer';
 import { TransformWrapper, TransformComponent } from "@prince3339/customized-react-zoom-pan-pinch";
 import Logo from './Logo';
 import AreaTitle from './AreaTitle';
@@ -42,7 +43,6 @@ class MapFigure extends React.Component {
     // imageMapResize();
     const ImageMap = document.querySelectorAll('#image-map > area');
     const mapContainer = document.getElementById('map-container');
-    console.log(ImageMap);
     ImageMap.forEach(area => {
       const title = area.getAttribute('title');
       const coords = area.getAttribute('coords');
@@ -69,7 +69,6 @@ class MapFigure extends React.Component {
       // calculate the width and height of the rectangle
       const width = Math.abs(right - left);
       const height = Math.abs(bottom - top);
-      console.log(left, right, area);
       const areaTitleContainer = document.createElement('div');
       const areaTitle = document.createElement('div');
       areaTitleContainer.classList.add('title-container');
@@ -81,11 +80,27 @@ class MapFigure extends React.Component {
       areaTitleContainer.style.left = `${parseInt(left) > parseInt(right) ? right : left}px`;
       areaTitle.classList.add('area-title');
       areaTitle.innerHTML = title;
+      areaTitle.setAttribute('id', title);
       areaTitleContainer.appendChild(areaTitle);
       if (title !== 'Easter Egg 3, 4' && title !== 'Easter Egg 1') {
         mapContainer.appendChild(areaTitleContainer);
       }
-      console.log(title, coords, area);
+      console.log(document.getElementById(title));
+      const titleText = document.getElementById(title);
+      if (titleText) {
+        const arcText = new ArcText(titleText);
+        
+        if (title === 'Talent Management') {
+          arcText.arc(160);
+          arcText.direction(1);
+        } else {
+          arcText.arc(250);
+          arcText.direction(-1);
+        }
+      }
+      
+      
+      // console.log(title, coords, area);
     });
   }
 
@@ -136,7 +151,9 @@ class MapFigure extends React.Component {
     return (
       <div className="body">
         <LogoContainerStyle>
-          <Logo />
+          <Logo
+            zoom={150}
+          />
         </LogoContainerStyle>
         <section>
           <div style={{position: 'relative'}} className="">
@@ -248,7 +265,7 @@ class MapFigure extends React.Component {
                                 }}
                                 target="_top"
                                 alt="Contact"
-                                title="Contact"
+                                title="C  o  n  t  a  c  t"
                                 href=""
                                 coords="930,2,299,526"
                                 shape="rect"

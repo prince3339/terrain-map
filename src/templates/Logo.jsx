@@ -1,15 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import LogoStyle from './LogoStyle';
 
-const TerrainLogo = () => (
+const TerrainLogo = ({
+	zoom,
+}) => (
 	<LogoStyle>
 		<h1>
 			Terrains
 		</h1>
 		<span className="zoom-value">
-			XX%
+			{zoom}%
 		</span>
 	</LogoStyle>
 );
+
+TerrainLogo.defaultProps = {
+	zoom: 100,
+}
+
+TerrainLogo.propTypes = {
+	zoom: PropTypes.number,
+}
 
 export default TerrainLogo;
