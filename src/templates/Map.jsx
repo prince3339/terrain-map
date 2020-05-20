@@ -6,6 +6,7 @@ import ImageMapper from 'react-image-mapper';
 import { TransformWrapper, TransformComponent } from "@prince3339/customized-react-zoom-pan-pinch";
 import Logo from './Logo';
 import AreaTitle from './AreaTitle';
+import ZoomPercentage from './ZoomPercentage';
 import {
   MapImgStyle,
   MapContainerStyle,
@@ -151,9 +152,7 @@ class MapFigure extends React.Component {
     return (
       <div className="body">
         <LogoContainerStyle>
-          <Logo
-            zoom={150}
-          />
+          <Logo />
         </LogoContainerStyle>
         <section>
           <div style={{position: 'relative'}} className="">
@@ -197,6 +196,7 @@ class MapFigure extends React.Component {
                 options: { limitToBounds, transformEnabled, disabled },
                 ...rest
               }) => {
+                console.log(document.getElementById('zoomPlaceholder'));
                   return (<React.Fragment>
                     {/* <div className="tools">
                       <button className="btn-gradient yellow small btn-type" data-testid="toggle-button" onClick={() => {
@@ -332,6 +332,8 @@ class MapFigure extends React.Component {
                               />
                           </map>
                         </div>
+                        {document.getElementById('zoomPlaceholder') && ReactDOM.createPortal(<ZoomPercentage zoom={scale} />, document.getElementById('zoomPlaceholder'))
+                        }
                       </TransformComponent>
                     </div>
                     {/* <div className="info">
