@@ -3,7 +3,8 @@ import styled from "styled-components";
 
 const MapImgStyle = styled.img`
     // pointer-events: initial !important;
-    // transform: scale(0.5);
+		// transform: scale(0.5);
+		width: 100%;
 `;
 
 const MapContainerStyle = styled.div`
@@ -25,11 +26,24 @@ const LogoContainerStyle = styled.aside`
 	bottom: 6rem;
 	z-index: 10;
 	pointer-events: none;
-	min-width: 17rem;
+	left: 5rem;
+	width: 13rem;
+`;
+
+const MainContainerStyle = styled.div`
+
+`;
+
+const MapWrapperStyle = styled.div`
+	.react-transform-component, .react-transform-element {
+		width: 100%;
+	}
 `;
 
 export {
 	MapImgStyle,
+	MapWrapperStyle,
 	MapContainerStyle,
+	MainContainerStyle,
 	LogoContainerStyle,
 };
