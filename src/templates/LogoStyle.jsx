@@ -8,6 +8,7 @@ const LogoStyle = styled.div`
 	h1 {
 		font-size: 10.6rem;
 		font-family: 'droulersregular';
+		font-weight: normal;
 		
 		writing-mode: vertical-lr;
 		-webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
@@ -20,7 +21,6 @@ const LogoStyle = styled.div`
 	.zoom-value {
 		color: var(--primary);
 		font-size: 2rem;
-		padding-left: 3rem;
 		font-family: 'simplon_monolight';
 	}
 `;
