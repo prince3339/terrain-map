@@ -7,7 +7,7 @@ import { TransformWrapper, TransformComponent } from "@prince3339/customized-rea
 import Logo from './Logo';
 import AreaTitle from './AreaTitle';
 import ZoomPercentage from './ZoomPercentage';
-import imageMapResize from '../lib/imageMapResize';
+// import imageMapResize from '../lib/imageMapResize';
 import {
   MapImgStyle,
   MapWrapperStyle,
@@ -43,28 +43,13 @@ class MapFigure extends React.Component {
     this.toggleSetting = this.toggleSetting.bind(this);
     this.enterArea = this.enterArea.bind(this);
     this.leaveArea = this.leaveArea.bind(this);
-    this.handleResize = this.handleResize.bind(this);
     this.getTipPosition = this.getTipPosition.bind(this);
     this.generateAreaTitle = this.generateAreaTitle.bind(this);
   }
   componentDidMount() {
     if (process.browser) {
-      console.log(window.imageMapResize);
-      
-      imageMapResize();
-      this.generateAreaTitle();
-      window.addEventListener('resize', this.handleResize);
+      window.imageMapResize(this.generateAreaTitle)();
     }
-  }
-
-  componentWillUnmount() {
-    if(process.browser) {
-      window.removeEventListener('resize', this.handleResize);
-    }
-  }
-
-  handleResize() {
-    this.generateAreaTitle();
   }
 
   generateAreaTitle() {

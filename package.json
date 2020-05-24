@@ -16,11 +16,12 @@
   },
   "dependencies": {
     "@prince3339/customized-react-zoom-pan-pinch": "^1.6.3",
+    "amd-loader": "^0.0.8",
     "arc-text": "^1.0.1",
     "babel-plugin-styled-components": "^1.10.7",
     "fs": "^0.0.1-security",
     "gatsby": "^2.20.12",
-    "gatsby-cli": "^2.12.5",
+    "gatsby-cli": "^2.12.34",
     "gatsby-plugin-styled-components": "^3.2.1",
     "gh-pages": "^2.2.0",
     "image-map-resizer": "^1.0.10",

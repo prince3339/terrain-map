@@ -7,7 +7,7 @@ const LogoStyle = styled.div`
 	width: 100%;
 	h1 {
 		font-size: 10.6rem;
-		font-family: 'droulersregular';
+		font-family: 'droulersregular' !important;
 		font-weight: normal;
 		
 		writing-mode: vertical-lr;
