@@ -50,6 +50,7 @@ class MapFigure extends React.Component {
   componentDidMount() {
     if (process.browser) {
       console.log(window.imageMapResize);
+      
       imageMapResize();
       this.generateAreaTitle();
       window.addEventListener('resize', this.handleResize);
@@ -374,12 +375,54 @@ class MapFigure extends React.Component {
                               coords="1595,1116,929,1708"
                               shape="rect"
                             /> */}
-                            <area target="_top" alt="About" title="About" href="" coords="4513,263,7483,3306" shape="rect" />
-                            <area target="_top" alt="Talent Management" title="Talent Management" href="" coords="10567,263,7521,3306" shape="rect" />
-                            <area target="_top" alt="Production" title="Production" href="" coords="10567,3343,7521,6010" shape="rect" />
-                            <area target="_top" alt="Easter Egg 1" title="Easter Egg 1" href="" coords="10567,6048,7521,8490" shape="0" />
-                            <area target="_top" alt="Easter Egg 3, 4" title="Easter Egg 3, 4" href="" coords="4513,3343,7483,6010" shape="rect" />
-                            <area target="_top" alt="Contact" title="Contact" href="" coords="4513,6048,7483,8490" shape="rect" />
+                            <area
+                              target="_top"
+                              alt="About"
+                              title="About"
+                              href=""
+                              coords="4513,263,7483,3306"
+                              shape="rect"
+                            />
+                            <area
+                              target="_top"
+                              alt="Talent Management"
+                              title="Talent Management"
+                              href=""
+                              coords="10567,263,7521,3306"
+                              shape="rect"
+                            />
+                            <area
+                              target="_top"
+                              alt="Production"
+                              title="Production"
+                              href=""
+                              coords="10567,3343,7521,6010"
+                              shape="rect"
+                            />
+                            <area
+                              target="_top"
+                              alt="Easter Egg 1"
+                              title="Easter Egg 1"
+                              href=""
+                              coords="10567,6048,7521,8490"
+                              shape="0"
+                            />
+                            <area
+                              target="_top"
+                              alt="Easter Egg 3, 4"
+                              title="Easter Egg 3, 4"
+                              href=""
+                              coords="4513,3343,7483,6010"
+                              shape="rect"
+                            />
+                            <area
+                              target="_top"
+                              alt="Contact"
+                              title="Contact"
+                              href=""
+                              coords="4513,6048,7483,8490"
+                              shape="rect"
+                            />
                         </map>
                       </div>
                       {process.browser && document.getElementById('zoomPlaceholder') ?
