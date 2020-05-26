@@ -98,6 +98,8 @@ class MapFigure extends React.Component {
         const height = Math.abs(bottom - top);
         const areaTitleContainer = document.createElement('div');
         const areaTitle = document.createElement('div');
+        const areaDOT = document.createElement('span');
+        areaDOT.classList.add('area-dot');
         
         titleWrapper.setAttribute('id', 'title-wrapper');
         areaTitleContainer.classList.add('title-container');
@@ -112,6 +114,7 @@ class MapFigure extends React.Component {
         areaTitle.innerHTML = title;
         areaTitle.setAttribute('id', title);
         areaTitleContainer.appendChild(areaTitle);
+        areaTitleContainer.appendChild(areaDOT);
         if (title !== 'Easter Egg 3, 4' && title !== 'Easter Egg 1') {
           titleWrapper.appendChild(areaTitleContainer);
         }
