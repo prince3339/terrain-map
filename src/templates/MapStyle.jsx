@@ -9,7 +9,7 @@ const MapImgStyle = styled.img`
 
 const MapContainerStyle = styled.div`
 	position: relative;
-	.area-title {
+	.area-title, .area-dot {
 		position: absolute;
     top: 50%;
     left: 50%;
@@ -18,6 +18,13 @@ const MapContainerStyle = styled.div`
 		color: var(--primary);
 		text-transform: uppercase;
 		font-family: 'MarianText';
+	}
+	.area-dot {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: var(--primary);
+		margin-top: -20px;
 	}
 `;
 
