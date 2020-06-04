@@ -15,7 +15,6 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
-    "@prince3339/customized-react-zoom-pan-pinch": "^1.6.3",
     "amd-loader": "^0.0.8",
     "arc-text": "^1.0.1",
     "babel-plugin-styled-components": "^1.10.7",
