@@ -48,7 +48,7 @@ class MapFigure extends React.Component {
   }
   componentDidMount() {
     if (process.browser) {
-      window.imageMapResize(this.generateAreaTitle)();
+      window.imageMapResize && window.imageMapResize(this.generateAreaTitle)();
     }
   }
 
@@ -211,7 +211,7 @@ class MapFigure extends React.Component {
                 disableOnTarget: ['clickMe'],
               }}
               wheel={{
-                step: 200,
+                step: 300,
                 wheelEnabled: enableWheel,
                 touchPadEnabled: enableTouchPadPinch,
                 limitsOnWheel,
