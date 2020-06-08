@@ -3,12 +3,13 @@ import styled from "styled-components";
 
 const MapImgStyle = styled.img`
     // pointer-events: initial !important;
-    // transform: scale(0.5);
+		// transform: scale(0.5);
+		width: 100%;
 `;
 
 const MapContainerStyle = styled.div`
 	position: relative;
-	.area-title {
+	.area-title, .area-dot {
 		position: absolute;
     top: 50%;
     left: 50%;
@@ -18,6 +19,13 @@ const MapContainerStyle = styled.div`
 		text-transform: uppercase;
 		font-family: 'MarianText';
 	}
+	.area-dot {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: var(--primary);
+		margin-top: -20px;
+	}
 `;
 
 const LogoContainerStyle = styled.aside`
@@ -25,11 +33,24 @@ const LogoContainerStyle = styled.aside`
 	bottom: 6rem;
 	z-index: 10;
 	pointer-events: none;
-	min-width: 17rem;
+	left: 5rem;
+	width: 13rem;
+`;
+
+const MainContainerStyle = styled.div`
+
+`;
+
+const MapWrapperStyle = styled.div`
+	.react-transform-component, .react-transform-element {
+		width: 100%;
+	}
 `;
 
 export {
 	MapImgStyle,
+	MapWrapperStyle,
 	MapContainerStyle,
+	MainContainerStyle,
 	LogoContainerStyle,
 };

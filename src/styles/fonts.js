@@ -13,14 +13,17 @@ const GlobalFontStyle = css`
     font-weight: normal;
     font-style: normal;
 	}
+
 	@font-face {
 		font-family: 'droulersregular';
-		src: url('./fonts/droulers-webfont.woff2') format('woff2'),
-				url('./fonts/droulers-webfont.woff') format('woff');
+		src: url('./fonts/Droulers-Regular.eot?#iefix') format('embedded-opentype'),
+				 url('./fonts/Droulers-Regular.woff') format('woff'),
+				 url('./fonts/Droulers-Regular.ttf')  format('truetype'),
+				 url('./fonts/Droulers-Regular.svg#Droulers-Regular') format('svg');
 		font-weight: normal;
 		font-style: normal;
-
 	}
+
 	@font-face {
 		font-family: 'simplon_monolight';
 		src: url('./fonts/simplonmono-light-webfont.woff2') format('woff2'),

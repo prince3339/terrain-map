@@ -15,13 +15,15 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
-    "@prince3339/customized-react-zoom-pan-pinch": "^1.6.3",
+    "amd-loader": "^0.0.8",
     "arc-text": "^1.0.1",
     "babel-plugin-styled-components": "^1.10.7",
+    "fs": "^0.0.1-security",
     "gatsby": "^2.20.12",
-    "gatsby-cli": "^2.12.5",
+    "gatsby-cli": "^2.12.34",
     "gatsby-plugin-styled-components": "^3.2.1",
     "gh-pages": "^2.2.0",
+    "image-map-resizer": "^1.0.10",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -30,7 +32,8 @@
     "react-pan-and-zoom-hoc": "^2.1.8",
     "react-zoom-pan-pinch": "^1.6.1",
     "styled-components": "^5.0.1",
-    "three": "^0.115.0"
+    "three": "^0.115.0",
+    "yarn": "^1.22.4"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
