@@ -27,7 +27,7 @@ class MapFigure extends React.Component {
       panningEnabled: true,
       transformEnabled: true,
       pinchEnabled: true,
-      limitToWrapper: false,
+      limitToWrapper: true,
       disabled: false,
       dbClickEnabled: true,
       lockAxisX: false,
@@ -51,6 +51,12 @@ class MapFigure extends React.Component {
       window.imageMapResize && window.imageMapResize(this.generateAreaTitle)();
     }
   }
+
+  // componentDidUpdate() {
+  //   if (process.browser) {
+  //     window.imageMapResize && window.imageMapResize(this.generateAreaTitle)();
+  //   }
+  // }
 
   generateAreaTitle() {
     setTimeout(() => {
@@ -281,7 +287,7 @@ class MapFigure extends React.Component {
                           className="map-container"
                         >
                           <MapImgStyle
-                            src="./xx-largemap-compressed.png"
+                            src="https://dev.golamdostogir.com/map-img/xx-largemap-compressed.png"
                             useMap="#image-map"
                             className="map-img"
                             onLoad={(e) => console.log(e)}
